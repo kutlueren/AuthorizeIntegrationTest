@@ -11,14 +11,14 @@ using Xunit;
 
 namespace IntegrationTest
 {
-    public class UnitTest1
+    public class WeatherForecastControllerTest
     {
         private readonly HttpClient client;
         private readonly HttpClient identityClient;
         private const string TokenEndpoint = "http://localhost/connect/token";
         private IdentityServerProxy identityServerProxy;
 
-        public UnitTest1()
+        public WeatherForecastControllerTest()
         {
             var identityServerWebHostBuilder = new WebHostBuilder()
                     .UseStartup<Startup>()
@@ -45,7 +45,7 @@ namespace IntegrationTest
         }
 
         [Fact]
-        public async Task Test1Async()
+        public async Task GetForecasts_Async()
         {
             client.SetBearerToken(await GetToken());
 
